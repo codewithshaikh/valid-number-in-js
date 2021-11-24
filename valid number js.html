@@ -1,0 +1,72 @@
+ <html>
+<head>
+	<title>Valid number</title>
+</head>
+<body>
+
+
+	<!-- { (error)
+
+		1 empty box
+		2 only number
+		3 10 digit only
+		4 start with 9,8,7,6.
+	} -->
+
+	<script>
+		function myfun(){
+			var a = document .getElementById("Mobileno").value;
+			if (a=="") {
+				document .getElementById("messages").innerHTML="** Please fill Mobile number";
+				return false;
+			}
+
+				// ( is not a number js short form { NaN } ) 
+
+			if (isNaN(a)) {
+				document .getElementById("messages").innerHTML="** Enter only Numeric value ";
+				return false;
+			}
+
+			if (a.length<10) {
+				document .getElementById("messages").innerHTML="** Mobile Number must be 10 digit";
+				return false;
+			}
+
+			if (a.length>10) {
+				document .getElementById("messages").innerHTML="** Mobile Number must be 10 digit";
+				return false;
+			}
+
+			if ((a.charAt(0)!=9) && (a.charAt(0)!=8) && (a.charAt(0)!=7) && (a.charAt(0)!=6)) {
+				document .getElementById("messages").innerHTML="** Mobile Number must start with 9,8,7,6. ";
+				return false;	
+			}
+
+		}
+
+
+
+
+
+
+
+
+	</script>
+
+	<h1 style="color: green; text-align: center;"> Chek Mobile Number Validation?</h1>
+
+	<form onsubmit="return myfun()">
+
+
+		Mobile No : <input type="text" name="Mobile" id="Mobileno" value="">  
+		<span id="messages" style="color: red"> </span><br><br>
+		<input type="submit" name="submit" value="Submit">
+
+
+
+
+	</form>
+
+</body>
+</html>
